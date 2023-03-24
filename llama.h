@@ -54,6 +54,7 @@ extern "C" {
         bool logits_all; // the llama_eval() call computes all logits, not just the last one
         bool vocab_only; // only load the vocabulary, no weights
         bool embedding;  // embedding mode only
+        bool use_mlock;  // force system to keep model in RAM
     };
 
     LLAMA_API struct llama_context_params llama_context_default_params();

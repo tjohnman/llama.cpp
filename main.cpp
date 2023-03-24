@@ -200,6 +200,7 @@ int main(int argc, char ** argv) {
         lparams.f16_kv     = params.memory_f16;
         lparams.logits_all = params.perplexity;
         lparams.embedding  = params.embedding;
+        lparams.use_mlock  = params.use_mlock;
 
         ctx = llama_init_from_file(params.model.c_str(), lparams);
 
