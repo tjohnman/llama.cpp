@@ -250,7 +250,7 @@ def get_models():
             }
         ]
     }
-return jsonify(response)
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(args.host, port=args.port)
