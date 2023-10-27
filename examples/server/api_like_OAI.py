@@ -219,5 +219,38 @@ def completion():
                     yield 'data: {}\n'.format(json.dumps(resData))
         return Response(generate(), mimetype='text/event-stream')
 
+@app.route('/v1/models', methods=['GET'])
+def get_models():
+    response = {
+        "object": "list",
+        "data": [
+            {
+                "id": "gpt-3.5-turbo",
+                "object": "model",
+                "created": 1677610602,
+                "owned_by": "openai",
+                "permission": [
+                    {
+                        "id": "modelperm-SFxxxxxxxxxxxxxxxxxxxxxxxxx",
+                        "object": "model_permission",
+                        "created": 1697465932,
+                        "allow_create_engine": False,
+                        "allow_sampling": True,
+                        "allow_logprobs": True,
+                        "allow_search_indices": False,
+                        "allow_view": True,
+                        "allow_fine_tuning": False,
+                        "organization": "*",
+                        "group": None,
+                        "is_blocking": False
+                    }
+                ],
+            "root": "gpt-3.5-turbo",
+            "parent": None
+            }
+        ]
+    }
+return jsonify(response)
+
 if __name__ == '__main__':
     app.run(args.host, port=args.port)
